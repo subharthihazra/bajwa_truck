@@ -1,0 +1,8 @@
+.outlined-text {
+    --outlined-text-color: #00000033;
+    text-shadow: 
+      -1px -1px 0 var(--outlined-text-color),
+      1px -1px 0 var(--outlined-text-color),
+      -1px 1px 0 var(--outlined-text-color),
+      1px 1px 0 var(--outlined-text-color); 
+  }

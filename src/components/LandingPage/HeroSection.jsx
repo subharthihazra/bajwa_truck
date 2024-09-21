@@ -1,10 +1,13 @@
 import React from "react";
+import logo from "../../assets/images/logo.png";
+import truck_parked from "../../assets/images/truck_parked.png";
 
 function HeroSection() {
   return (
     <div className="flex h-screen w-full flex-col relative">
       <Headerbar />
-      <div className="flex h-5/6 w-full bg-cyan-600 ">
+      <img src={truck_parked} alt="truck background" className=" absolute h-5/6 w-full z-[-1] object-cover" />
+      <div className="flex h-5/6 w-full bg-gradient-to-r from-[#00000088] to-transparent">
         <div className="w-1/2 mx-24 flex flex-col justify-center text-white gap-5">
           <div className=" text-[60px] font-bold leading-[1]">
             Book Your{" "}
@@ -30,8 +33,10 @@ function HeroSection() {
 
 function Headerbar() {
   return (
-    <div className="flex flex-row absolute w-full top-0 left-0 h-20 border-b-[1px] border-[#FFFFFFAA]">
-      <div className="w-[30%] flex justify-center align-middle py-3">logo</div>
+    <div className="flex flex-row absolute w-full top-0 left-0 h-20 border-b-[1px] border-[#FFFFFF66]">
+      <div className="w-[30%] flex justify-center align-middle py-3">
+        <img src={logo} />
+      </div>
       <div className="w-[40%] flex align-middle py-7">
         <nav className="w-full flex gap-4 align-middle">
           <a href="/" className="text-white no-underline h-min">
@@ -63,7 +68,9 @@ function Headerbar() {
 function BottomBox() {
   return (
     <div className="w-2/3 flex flex-row p-4 gap-6 border-2 rounded-lg absolute bottom-0 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-white">
-      <div className="bg-[#005AAD] rounded-t-xl absolute top-0 left-1/2 translate-x-[-50%] translate-y-[calc(-100%-2px)] text-white px-10 pt-2 pb-1 box-border">Check Spot</div>
+      <div className="bg-[#005AAD] rounded-t-xl absolute top-0 left-1/2 translate-x-[-50%] translate-y-[calc(-100%-2px)] text-white px-10 pt-2 pb-1 box-border">
+        Check Spot
+      </div>
       <div className="flex flex-col grow">
         <div className="text-lg font-bold">Time</div>
         <div className="flex gap-6">
