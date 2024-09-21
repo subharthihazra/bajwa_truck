@@ -72,7 +72,7 @@ function BannerOfPoints() {
           <div className="mx-auto text-xl">
             <IoIosArrowRoundDown />
           </div>
-          <div className="font-bold text-lg text-[#008F4B]">Book</div>
+          <div className="font-bold text-lg text-[#008F4B]">Reverse</div>
         </div>
         <div className="w-[300px] h-[300px] rounded-lg border-2 border-gray-300 bg-gradient-to-br from-[#FFEEC1] to-white flex flex-col gap-4 p-5 justify-center">
           <div className="mx-auto text-5xl">
@@ -88,7 +88,7 @@ function BannerOfPoints() {
           <div className="mx-auto text-xl">
             <IoIosArrowRoundDown />
           </div>
-          <div className="font-bold text-lg text-[#976C00]">Book</div>
+          <div className="font-bold text-lg text-[#976C00]">Park</div>
         </div>
       </div>
     </div>
