@@ -119,8 +119,8 @@ function LandingPage() {
         duration: 1,
         scrollTrigger: {
           trigger: CTARef.current,
-          start: "center 70%",
-          end: "center 20%",
+          start: "30% 70%",
+          end: "30% 20%",
           scroller: "body",
         },
       });
@@ -130,8 +130,8 @@ function LandingPage() {
         duration: 1,
         scrollTrigger: {
           trigger: CTARef.current,
-          start: "center 70%",
-          end: "center 20%",
+          start: "30% 70%",
+          end: "30% 20%",
           scroller: "body",
         },
       });
