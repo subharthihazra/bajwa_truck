@@ -1,41 +1,15 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import logo from "../../assets/images/logo.png";
 import truck_parked from "../../assets/images/truck_parked.png";
 
-function HeroSection() {
+const Headerbar = forwardRef((props, ref) => {
   return (
-    <div className="flex h-screen w-full flex-col relative">
-      <Headerbar />
-      <img src={truck_parked} alt="truck background" className=" absolute h-5/6 w-full z-[-1] object-cover" />
-      <div className="flex h-5/6 w-full bg-gradient-to-r from-[#00000088] to-transparent">
-        <div className="w-1/2 mx-24 flex flex-col justify-center text-white gap-5">
-          <div className=" text-[60px] font-bold leading-[1]">
-            Book Your{" "}
-            <span className="bg-gradient-to-r from-[#ff5252] to-pink-500 bg-clip-text text-transparent">
-              Truck Parking Spot
-            </span>{" "}
-            Online Today!
-          </div>
-          <div>
-            With Bajwa Truck, you can easily book a truck parking spot online.
-            Say goodbye to the hassle of searching for parking.
-          </div>
-
-          <button className="rounded-md bg-gradient-to-r from-[#4AD0ED] to-[#005AAD] text-white outline-none px-6 py-2 border-none w-fit">
-            Learn More
-          </button>
-        </div>
-      </div>
-      <BottomBox />
-    </div>
-  );
-}
-
-function Headerbar() {
-  return (
-    <div className="flex flex-row absolute w-full top-0 left-0 h-20 border-b-[1px] border-[#FFFFFF66]">
+    <div
+      className="flex flex-row absolute w-full top-0 left-0 h-20 border-b-[1px] border-[#FFFFFF66]"
+      ref={ref}
+    >
       <div className="w-[30%] flex justify-center align-middle py-3">
-        <img src={logo} />
+        <img src={logo} alt="logo" />
       </div>
       <div className="w-[40%] flex align-middle py-7">
         <nav className="w-full flex gap-4 align-middle">
@@ -63,7 +37,44 @@ function Headerbar() {
       </div>
     </div>
   );
-}
+});
+
+const HeroSection = forwardRef(({ headerRef, heroBgRef }, ref) => {
+  return (
+    <div
+      className="flex h-screen w-full flex-col relative overflow-hidden"
+      ref={ref}
+    >
+      <Headerbar ref={headerRef} />
+      <img
+        src={truck_parked}
+        alt="truck background"
+        className=" absolute h-5/6 w-full z-[-1] object-cover"
+        ref={heroBgRef}
+      />
+      <div className="flex h-5/6 w-full bg-gradient-to-r from-[#00000088] to-transparent">
+        <div className="w-1/2 mx-24 flex flex-col justify-center text-white gap-5">
+          <div className=" text-[60px] font-bold leading-[1]">
+            Book Your{" "}
+            <span className="bg-gradient-to-r from-[#ff5252] to-pink-500 bg-clip-text text-transparent">
+              Truck Parking Spot
+            </span>{" "}
+            Online Today!
+          </div>
+          <div>
+            With Bajwa Truck, you can easily book a truck parking spot online.
+            Say goodbye to the hassle of searching for parking.
+          </div>
+
+          <button className="rounded-md bg-gradient-to-r from-[#4AD0ED] to-[#005AAD] text-white outline-none px-6 py-2 border-none w-fit">
+            Learn More
+          </button>
+        </div>
+      </div>
+      <BottomBox />
+    </div>
+  );
+});
 
 function BottomBox() {
   return (

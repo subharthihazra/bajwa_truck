@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { IoIosPricetags } from "react-icons/io";
 import { IoLocation } from "react-icons/io5";
 import grid_bg from "../../assets/images/grid_bg.png";
@@ -6,15 +6,17 @@ import grid_img1 from "../../assets/images/grid_img1.jpeg";
 import grid_img2 from "../../assets/images/grid_img2.jpeg";
 import grid_img3 from "../../assets/images/grid_img3.jpeg";
 
-
-function OurServies() {
+const OurServices = forwardRef(({ boxRefs }, ref) => {
   return (
-    <div className="flex min-h-screen w-full flex-col text-center gap-8 relative">
-       <img
-          src={grid_bg}
-          alt="grid background"
-          className=" absolute h-full w-full z-[-1] object-fill top-0"
-        />
+    <div
+      className="flex min-h-screen w-full flex-col text-center gap-8 relative overflow-hidden"
+      ref={ref}
+    >
+      <img
+        src={grid_bg}
+        alt="grid background"
+        className=" absolute h-full w-full z-[-1] object-fill top-0"
+      />
       <div className="w-1/3 mx-auto flex flex-col align-middle gap-4">
         <div className="w-fit mx-auto">
           <div className="bg-gradient-to-r from-[#4AD0ED] to-[#005AAD] bg-clip-text text-transparent font-bold w-fit">
@@ -29,18 +31,21 @@ function OurServies() {
       </div>
 
       <div>
-        <GridOfBoxes />
+        <GridOfBoxes ref={boxRefs} />
       </div>
     </div>
   );
-}
+});
 
-function GridOfBoxes() {
+const GridOfBoxes = forwardRef((props, boxRefs) => {
   return (
     <div>
-      <div className="grid grid-cols-4 grid-rows-3 gap-4 mx-[20%] text-left">
+      <div className="grid grid-cols-4 grid-rows-3 gap-4 mx-[5%] xl:mx-[20%] text-left">
         {/* Element 1: Top Left (2x2) */}
-        <div className="col-span-2 row-span-2 bg-white border-2 border-gray-300 rounded-lg flex flex-col shadow overflow-hidden">
+        <div
+          className="col-span-2 row-span-2 bg-white border-2 border-gray-300 rounded-lg flex flex-col shadow overflow-hidden"
+          ref={(el) => (boxRefs.current[0] = el)} // Assign ref for box1
+        >
           <div className="flex flex-col gap-6 p-6 h-1/2">
             <div className="rounded-full py-[2px] px-3 bg-[#FF3030] text-sm text-white w-fit">
               MOST POPULAR
@@ -56,14 +61,21 @@ function GridOfBoxes() {
               BOOK NOW!
             </button>
           </div>
-          <img src={grid_img1} className="h-1/2 bg-slate-100 object-cover" alt="grid img1" />
+          <img
+            src={grid_img1}
+            className="h-1/2 bg-slate-100 object-cover"
+            alt="grid img1"
+          />
         </div>
 
         {/* Element 2: Top Right (2x1) */}
-        <div className="col-start-3 col-span-2 row-span-1 bg-white border-2 border-gray-300 rounded-lg flex shadow overflow-hidden">
+        <div
+          className="col-start-3 col-span-2 row-span-1 bg-white border-2 border-gray-300 rounded-lg flex shadow overflow-hidden"
+          ref={(el) => (boxRefs.current[1] = el)} // Assign ref for box2
+        >
           <div className="flex flex-col gap-6 p-6 w-1/2">
             <div className="rounded-full py-[2px] px-3 bg-[#FF8730] text-sm text-white w-fit">
-              FEXIBLE
+              FLEXIBLE
             </div>
             <div className="font-bold text-xl">
               Customizable Parking Solutions for Truck Owners
@@ -75,11 +87,18 @@ function GridOfBoxes() {
               BOOK NOW!
             </button>
           </div>
-          <img src={grid_img2} className="w-1/2 h-full bg-slate-100 object-cover" alt="grid img2" />
+          <img
+            src={grid_img2}
+            className="w-1/2 h-full bg-slate-100 object-cover"
+            alt="grid img2"
+          />
         </div>
 
         {/* Element 3: Second Row Right (2x2) */}
-        <div className="col-start-3 row-start-2 col-span-2 row-span-2 bg-white border-2 border-gray-300 rounded-lg flex flex-col shadow overflow-hidden">
+        <div
+          className="col-start-3 row-start-2 col-span-2 row-span-2 bg-white border-2 border-gray-300 rounded-lg flex flex-col shadow overflow-hidden"
+          ref={(el) => (boxRefs.current[2] = el)} // Assign ref for box3
+        >
           <div className="flex flex-col gap-6 p-6 h-1/2">
             <div className="rounded-full py-[2px] px-3 bg-[#004699] text-sm text-white w-fit">
               HOT
@@ -95,11 +114,18 @@ function GridOfBoxes() {
               BOOK NOW!
             </button>
           </div>
-          <img src={grid_img3} className="h-1/2 bg-slate-100 object-cover" alt="grid img3" />
+          <img
+            src={grid_img3}
+            className="h-1/2 bg-slate-100 object-cover"
+            alt="grid img3"
+          />
         </div>
 
         {/* Element 4: Bottom Left (1x1) */}
-        <div className="col-span-1 row-start-3 bg-white border-2 border-gray-300 rounded-lg flex flex-col gap-6 shadow overflow-hidden">
+        <div
+          className="col-span-1 row-start-3 bg-white border-2 border-gray-300 rounded-lg flex flex-col gap-6 shadow overflow-hidden"
+          ref={(el) => (boxRefs.current[3] = el)} // Assign ref for box4
+        >
           <div className="flex flex-col gap-6 p-6">
             <div className="text-5xl">
               <IoLocation />
@@ -117,7 +143,10 @@ function GridOfBoxes() {
         </div>
 
         {/* Element 5: Bottom Right (1x1) */}
-        <div className="col-start-2 col-span-1 row-start-3 bg-white border-2 border-gray-300 rounded-lg flex flex-col gap-6 shadow overflow-hidden">
+        <div
+          className="col-start-2 col-span-1 row-start-3 bg-white border-2 border-gray-300 rounded-lg flex flex-col gap-6 shadow overflow-hidden"
+          ref={(el) => (boxRefs.current[4] = el)} // Assign ref for box5
+        >
           <div className="flex flex-col gap-6 p-6">
             <div className="text-5xl">
               <IoIosPricetags />
@@ -136,6 +165,6 @@ function GridOfBoxes() {
       </div>
     </div>
   );
-}
+});
 
-export default OurServies;
+export default OurServices;
